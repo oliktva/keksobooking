@@ -9,4 +9,5 @@ Thumbs.db
 *.ai
 *.pdf
 yarn.lock
+.publish
 npm-debug.log*

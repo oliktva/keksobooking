@@ -6,7 +6,6 @@ module.exports = (function () {
 
   return {
     map: map,
-    filter: filter,
     form: form
   };
 })();

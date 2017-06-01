@@ -14,7 +14,6 @@ var checkKey = require('./utils/check-key.js');
    * @param  {Function} callback
    */
   var Pin = function (data, callback) {
-    var pin = this;
     this.element = (function () {
       var element = document.createElement('div');
       var img = '<img src="' + data.author.avatar + '" class="rounded" width="40" height="40">';
@@ -28,16 +27,16 @@ var checkKey = require('./utils/check-key.js');
     this.data = data;
     this.active = false;
     this.onClick = function () {
-      callback(pin);
+      callback(this);
     };
     this.onKeydown = function (evt) {
       if (checkKey.isEnter(evt)) {
-        callback(pin);
+        callback(this);
       }
     };
 
-    this.element.addEventListener('click', this.onClick);
-    this.element.addEventListener('keydown', this.onKeydown);
+    this.element.addEventListener('click', this.onClick.bind(this));
+    this.element.addEventListener('keydown', this.onKeydown.bind(this));
   };
 
   Pin.prototype.remove = function () {

@@ -76,7 +76,7 @@ var debounce = require('./utils/debounce.js');
    */
   var getFilteredData = function (places) {
     var filteredPlaces = filter.byEquality(places, 'type', dataUtils.getValueFromFilter(type));
-    filteredPlaces = filter.bySuitablePrice(places, 'price', dataUtils.getValueFromFilter(price));
+    filteredPlaces = filter.bySuitablePrice(filteredPlaces, 'price', dataUtils.getValueFromFilter(price));
     filteredPlaces = filter.byEquality(filteredPlaces, 'rooms', dataUtils.getValueFromFilter(roomNumber));
     filteredPlaces = filter.byEquality(filteredPlaces, 'guests', dataUtils.getValueFromFilter(guestsNumber));
     filteredPlaces = [].reduce.call(featuresList, function (previousValue, currentItem) {
